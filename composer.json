@@ -1,0 +1,24 @@
+{
+    "name": "altis/privacy",
+    "description": "Privacy module for Altis",
+    "type": "package",
+    "require": {
+        "php": ">=7.1",
+        "altis/consent": "~1.0.0"
+    },
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Human Made Limited",
+            "email": "hello@humanmade.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "inc/namespace.php"
+        ]
+    },
+    "extra": {
+        "altis": {}
+    }
+}
