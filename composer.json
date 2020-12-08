@@ -15,7 +15,8 @@
     ],
     "autoload": {
         "files": [
-            "inc/namespace.php"
+            "inc/namespace.php",
+            "inc/consent/namespace.php"
         ]
     },
     "extra": {
