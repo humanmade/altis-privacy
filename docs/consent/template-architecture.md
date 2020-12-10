@@ -2,7 +2,7 @@
 
 The Altis Consent module comes with a default banner that can be customized via the [filters](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference) provided for the messaging and button text. However, those templates can be replaced entirely or only specific templates can be replaced by your own in a theme or plugin.
 
-The default banner templates are located in the `/tmpl` directory. 
+The default banner templates are located in the `/tmpl` directory.
 
 ## Overriding the default templates
 
@@ -22,7 +22,7 @@ add_filter( 'altis.consent.cookie_preferences_template_path', get_template_direc
 
 ### `consent-banner.php`
 
-The main template file is [`tmpl/consent-banner.php`](https://github.com/humanmade/altis-consent/blob/master/tmpl/consent-banner.php). This file path can be customized with the [`altis.consent.consent_banner_path` filter](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentconsent_banner_path) and is loaded with the [load_consent_banner](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Public-Functions#load_consent_banner) function. 
+The main template file is [`tmpl/consent-banner.php`](https://github.com/humanmade/altis-consent/blob/master/tmpl/consent-banner.php). This file path can be customized with the [`altis.consent.consent_banner_path` filter](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentconsent_banner_path) and is loaded with the [load_consent_banner](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Public-Functions#load_consent_banner) function.
 
 This template loads the [`consent-updated`](#consent-updatedphp), [`cookie-preferences`](#cookie-preferencesphp) (if applicable), and [`button-row`](#button-rowphp) templates.
 
@@ -32,7 +32,7 @@ This template displays the "preferences updated" messaging which can be filtered
 
 ### `cookie-preferences.php`
 
-This template pulls in the cookie consent categories from `WP_CONSENT_API::$config`, loops through them, and displays options for users to customize the types of cookie tracking they would like to allow. It uses the [`altis.consent.apply_cookie_preferences_button_text` filter](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentapply_cookie_preferences_button_text) for the "apply changes" button. 
+This template pulls in the cookie consent categories from `WP_CONSENT_API::$config`, loops through them, and displays options for users to customize the types of cookie tracking they would like to allow. It uses the [`altis.consent.apply_cookie_preferences_button_text` filter](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentapply_cookie_preferences_button_text) for the "apply changes" button.
 
 The built-in CSS is designed to display the cookie preferences panel when the cookie preferences button is clicked. When the panel is displayed, the "allow only functional cookies" and "allow all cookies" buttons are hidden in favor of the more granular controls the preferences panel offers.
 
