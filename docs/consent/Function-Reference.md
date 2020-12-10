@@ -1,3 +1,5 @@
+# PHP Function Reference
+
 **Note:** All the functions in the Altis Consent plugin use the `Altis\Consent` namespace except where noted.
 
 ## `load_consent_banner`
