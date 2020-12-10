@@ -33,7 +33,3 @@ Functional cookies or any other form of local storage are any kind of user data 
 Cookies or any other form of local storage that can not be seen as statistics, statistics-anonymous, marketing or functional, and where the technical storage or access is necessary for the legitimate purpose of storing preferences.
 
 Additional consent categories can be defined within a site's code.
-
-## Is the Consent API part of WordPress?
-
-As of the current version of WordPress (5.5), the Consent API is not a core component. It is a proposed feature that can be used independently in projects while inclusion into core is being discussed. Altis Consent builds on top of the Consent API feature plugin to enable consent management for our own first-party cookies and local storage as well as allowing projects built with Altis to manage cookie consent within their own applications.
