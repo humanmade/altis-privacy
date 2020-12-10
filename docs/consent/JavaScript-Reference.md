@@ -1,3 +1,5 @@
+# JavaScript Reference
+
 ## `wp_listen_for_consent_change`
 
 Event to listen for consent changes.
