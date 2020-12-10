@@ -1,3 +1,5 @@
+# Consent API
+
 The Consent API is a developer API to read and register consent categories, to allow consent management and other plugins to work together, improving compliance.
 
 ## How does it work?
