@@ -2,10 +2,10 @@
 
 ## `load_consent_banner`
 
-Loads the templates used to display the cookie consent banner. The path to the banner can be customized using the [`altis.consent.consent_banner_path`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentconsent_banner_path) filter.
+Loads the templates used to display the cookie consent banner. The path to the banner can be customized using the [`altis.consent.consent_banner_path`](/Filter-Reference#altisconsentconsent_banner_path) filter.
 
 * Uses [`load_template`](https://developer.wordpress.org/reference/functions/load_template/)
-* See [`altis.consent.consent_banner_path`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentconsent_banner_path)
+* See [`altis.consent.consent_banner_path`](/Filter-Reference#altisconsentconsent_banner_path)
 
 ### Example
 ```php
@@ -18,10 +18,10 @@ function render_consent_banner() : string {
 
 ## `should_display_banner`
 
-Determines whether the banner should be displayed. Uses the `display_banner` setting defined in the admin but can be filtered by using the [`altis.consent.should_display_banner`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentshould_display_banner) filter.
+Determines whether the banner should be displayed. Uses the `display_banner` setting defined in the admin but can be filtered by using the [`altis.consent.should_display_banner`](/Filter-Reference#altisconsentshould_display_banner) filter.
 
 * Uses [`Settings\get_consent_option`](#settingsget_consent_option)
-* See [`altis.consent.should_display_banner`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentshould_display_banner)
+* See [`altis.consent.should_display_banner`](/Filter-Reference#altisconsentshould_display_banner)
 
 ### Return
 
@@ -41,7 +41,7 @@ function load_consent_banner() {
 
 Returns the default consent cookie prefix.
 
-* See [`altis.consent.cookie_prefix`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentcookie_prefix)
+* See [`altis.consent.cookie_prefix`](/Filter-Reference#altisconsentcookie_prefix)
 
 ### Return
 
@@ -56,9 +56,9 @@ wp_localize_script( 'altis-consent', 'altisConsent', [
 
 ## `consent_types`
 
-Returns the active consent types. 
+Returns the active consent types.
 
-* See [`altis.consent.types`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsenttypes)
+* See [`altis.consent.types`](/Filter-Reference#altisconsenttypes)
 
 ### Return
 
@@ -75,7 +75,7 @@ wp_localize_script( 'altis-consent', 'altisConsent', [
 
 Returns a list of active consent categories.
 
-* See [`altis.consent.categories`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentcategories)
+* See [`altis.consent.categories`](/Filter-Reference#altisconsentcategories)
 
 ### Return
 
@@ -92,7 +92,7 @@ wp_localize_script( 'altis-consent', 'altisConsent', [
 
 Returns a list of active possible consent values.
 
-* See [`altis.consent.values`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentvalues)
+* See [`altis.consent.values`](/Filter-Reference#altisconsentvalues)
 
 ### Return
 
@@ -127,7 +127,7 @@ if ( ! Consent\validate_consent_item( $category, 'category' ) ) {
 
 ## `get_cookie_policy_url`
 
-Retrieves the URL to the cookie policy page. Can be filtered by the [`altis.consent.cookie_policy_url`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentcookie_policy_url) filter.
+Retrieves the URL to the cookie policy page. Can be filtered by the [`altis.consent.cookie_policy_url`](/Filter-Reference#altisconsentcookie_policy_url) filter.
 
 * Uses [`Settings\get_consent_option`](#settingsget_consent_option)
 * Uses [`get_post_type`](http://developer.wordpress.org/reference/functions/get_post_type/)
@@ -173,7 +173,7 @@ $cookie_expiration = Altis\Consent\Settings\get_consent_option( 'cookie_expirati
 
 **Note:** Defined in the `Altis\Consent\Settings` namespace.
 
-Gets the default banner message. Filterable with the [`altis.consent.default_banner_message`](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference#altisconsentdefault_banner_message) filter.
+Gets the default banner message. Filterable with the [`altis.consent.default_banner_message`](/Filter-Reference#altisconsentdefault_banner_message) filter.
 
 ### Return
 
