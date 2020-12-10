@@ -1,3 +1,5 @@
+# Filter Reference
+
 ## `altis.consent.allowlisted_categories`
 
 An array of always allowed consent categories.
