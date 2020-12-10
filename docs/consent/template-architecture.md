@@ -1,4 +1,4 @@
-## Overview
+# Template Architecture
 
 The Altis Consent module comes with a default banner that can be customized via the [filters](https://github.com/humanmade/altis-consent/wiki/Altis-Consent-Filter-Reference) provided for the messaging and button text. However, those templates can be replaced entirely or only specific templates can be replaced by your own in a theme or plugin.
 
