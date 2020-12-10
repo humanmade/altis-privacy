@@ -32,7 +32,7 @@ In addition, a robust templating system and dozens of filters allow development 
 The API allows management of third party cookies if it is configured so. Refer Developer Docs to see how this can be done.
 
 ## Can I manage user data tracked through Altis' personalization features?
-Altis' personalization features track user data that comprise first-party cookies and those will be treated as explained [above](https://github.com/humanmade/altis-consent/wiki#what-does-it-do).
+Altis' personalization features track user data that comprise first-party cookies and those will be treated as explained [above](#what-does-it-do).
 
 ## Does the API help categorize the type of cookies?
-Out of the box, [five categories](https://github.com/humanmade/altis-consent/wiki/WP-Consent-API#consent-categories) are provided functional, marketing, statistics, statistics-anonymous and preferences. More categories can be added via a filter as explained in the Dev Docs.
+Out of the box, [five categories](/Consent-API#consent-categories) are provided functional, marketing, statistics, statistics-anonymous and preferences. More categories can be added via a filter as explained in the Dev Docs.
