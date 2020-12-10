@@ -1,3 +1,5 @@
+# Privacy Settings Page
+
 Out of the box, Altis Consent provides a robust and configurable Privacy Settings page. This page allows you to define policy pages for cookies and privacy, data retention length and the level of user preferences to display, as well as configure the precise wording of your cookie consent banner.
 
 ![Privacy Settings page](https://raw.githubusercontent.com/wiki/humanmade/altis-consent/images/Altis_Consent_Privacy_Settings.png)
