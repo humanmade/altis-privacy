@@ -1,3 +1,5 @@
+/* global altisConsentGtm */
+
 /**
  * Send consent status to GTM.
  */
