@@ -26,7 +26,7 @@ function init() {
 }
 
 function enqueue_scripts() {
-	wp_enqueue_script( 'gtm-consent', plugins_url( '/assets/gtm-consent.js', dirname( __FILE__ ) ), [], '6.0', true );
+	wp_enqueue_script( 'gtm-consent', plugins_url( '/assets/gtm-consent.js', dirname( __FILE__, 2 ) ), [], '6.0', true );
 
 	wp_localize_script( 'gtm-consent', 'altisConsentGtm', [
 		// Pass the dataLayer variable name to the javascript.
