@@ -10,10 +10,6 @@ namespace Altis\Privacy\GTM;
 use Altis;
 
 function bootstrap() {
-	add_action( 'plugins_loaded', __NAMESPACE__ . '\\init' );
-}
-
-function init() {
 	$consent = Altis\get_config()['modules']['privacy']['consent'];
 	$gtm     = Altis\get_config()['modules']['analytics']['google-tag-manager'];
 
