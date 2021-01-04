@@ -8,7 +8,6 @@
 namespace Altis\Privacy\Consent;
 
 use Altis;
-use Altis\Consent;
 
 /**
  * Kick it off.
@@ -23,8 +22,8 @@ function bootstrap() {
 
 	add_action( 'plugins_loaded', __NAMESPACE__ . '\\load_plugins', 1 );
 
-	// Filter native analytics consent cookie prefix.
-	add_filter( 'altis.analytics.consent_cookie_prefix', __NAMESPACE__ . '\\enable_analytics_consent' );
+	// Ensure native analytics consent is enabled.
+	add_filter( 'altis.analytics.consent_enabled', '__return_true' );
 }
 
 /**
@@ -33,18 +32,4 @@ function bootstrap() {
 function load_plugins() {
 	require_once Altis\ROOT_DIR . '/vendor/altis/consent-api/plugin.php';
 	require_once Altis\ROOT_DIR . '/vendor/altis/consent/plugin.php';
-}
-
-/**
- * Filter the Analytics plugin consent cookie prefix.
- *
- * @param string|null $cookie_prefix The analytics consent cookie prefix or null.
- * @return string|null
- */
-function enable_analytics_consent( ?string $cookie_prefix ) {
-	if ( ! Consent\should_display_banner() ) {
-		return $cookie_prefix;
-	}
-
-	return Consent\cookie_prefix();
 }
