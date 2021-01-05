@@ -33,9 +33,9 @@ function enqueue_scripts() {
 			// Ensure data layer variable is available.
 			'var %1$s = window.%1$s || [];' .
 			// Push initial consented categories into data layer.
-			'%1$s.push( { event: \'altis-consent-changed\', altisConsent: Altis.Consent.getCategories().join( \', \' ) } );' .
+			'%1$s.push( { event: \'altis-consent-changed\', altisConsent: Altis.Consent.getCategories().join( \', \' ) + \',\' } );' .
 			// Listen for updates to consented categories.
-			'document.addEventListener( \'wp_listen_for_consent_change\', function () { %1$s.push( { event: \'altis-consent-changed\', altisConsent: Altis.Consent.getCategories().join( \', \' ) } ) } );',
+			'document.addEventListener( \'wp_listen_for_consent_change\', function () { %1$s.push( { event: \'altis-consent-changed\', altisConsent: Altis.Consent.getCategories().join( \', \' ) + \',\' } ) } );',
 			// Documented in /vendor/humanmade/hm-gtm/inc/namespace.php.
 			apply_filters( 'hm_gtm_data_layer_var', 'dataLayer' )
 		),

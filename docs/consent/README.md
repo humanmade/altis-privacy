@@ -18,15 +18,15 @@ In order for this to work, all cookies and local storage used on a site must be 
 
 ## What does it do?
 
-Out of the box, the Consent API handles all first-party cookies and local storage data. Using the controls provided on the Privacy page in the WP admin you can link your website's Privacy Policy and Cookie storage Policy page. There are options to control whether to grant the user a choice to select the types of cookies they want to consent to, or an option to allow all cookies or only functional cookies. You may also easily add a cookie consent banner message in the admin settings.
+Out of the box, the Consent API supports [Altis Analytics](docs://analytics/native/README.md) and [Google Tag Manager](docs://analytics/google-tag-manager/README.md). Using the controls provided on the Privacy page in the WP admin you can link your website's Privacy Policy and Cookie storage Policy page. There are options to control whether to grant the user a choice to select the types of cookies they want to consent to, or an option to allow all cookies or only functional cookies. You may also easily add a cookie consent banner message in the admin settings.
 
 In addition, a robust templating system and dozens of filters allow development teams to fully customize the options or the display of the banner, or only customize certain specific elements, based on a site's needs.
 
 ## What about third-party cookies?
-The API allows management of third party cookies if it is configured so. Refer Developer Docs to see how this can be done.
+The API allows management of third party cookies if it is configured so. See the [JavaScript Reference](./javascript-reference.md) to see how this can be done.
 
 ## Can I manage user data tracked through Altis' personalization features?
-Altis' personalization features track user data that comprise first-party cookies and those will be treated as explained [above](#what-does-it-do).
+Altis' personalization features track user data using first-party cookies and are supported by default.
 
 ## Does the API help categorize the type of cookies?
-Out of the box, [five categories](/Consent-API#consent-categories) are provided functional, marketing, statistics, statistics-anonymous and preferences. More categories can be added via a filter as explained in the Dev Docs.
+Out of the box, [five categories](./Consent-API.md#consent-categories) are provided: functional, marketing, statistics, statistics-anonymous and preferences. More categories can be added via a filter as explained in the Dev Docs.
