@@ -13,25 +13,32 @@ use Altis;
  * Kick it off.
  */
 function bootstrap() {
-	$consent = Altis\get_config()['modules']['privacy']['consent'];
-	$gtm     = Altis\get_config()['modules']['analytics']['google-tag-manager'];
+	$gtm = Altis\get_config()['modules']['analytics']['google-tag-manager'];
 
-	// Bail if we aren't using the Consent API or GTM.
-	if ( ! $consent || ! $gtm ) {
+	// Bail if we aren't using GTM.
+	if ( empty( $gtm ) ) {
 		return;
 	}
 
-	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
+	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts', 11 );
 }
 
 /**
- * Enqueue the GTM consent script and pass through any variables we need on the client side.
+ * Add inline tag manager script to Consent API JS.
  */
 function enqueue_scripts() {
-	wp_enqueue_script( 'gtm-consent', plugins_url( '/assets/gtm-consent.js', dirname( __FILE__, 2 ) ), [], '6.0', true );
-
-	wp_localize_script( 'gtm-consent', 'altisConsentGtm', [
-		// Pass the dataLayer variable name to the javascript.
-		'dataLayer' => apply_filters( 'hm_gtm_data_layer_var', 'dataLayer' ),
-	] );
+	wp_add_inline_script(
+		'altis-consent',
+		sprintf(
+			// Ensure data layer variable is available.
+			'var %1$s = window.%1$s || [];' .
+			// Push initial consented categories into data layer.
+			'%1$s.push( { event: \'altis-consent-changed\', altisConsent: Altis.Consent.getCategories().join( \', \' ) } );' .
+			// Listen for updates to consented categories.
+			'document.addEventListener( \'wp_listen_for_consent_change\', function () { %1$s.push( { event: \'altis-consent-changed\', altisConsent: Altis.Consent.getCategories().join( \', \' ) } ) } );',
+			// Documented in /vendor/humanmade/hm-gtm/inc/namespace.php.
+			apply_filters( 'hm_gtm_data_layer_var', 'dataLayer' )
+		),
+		'after'
+	);
 }
