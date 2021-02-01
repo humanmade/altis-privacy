@@ -21,6 +21,11 @@
         ]
     },
     "extra": {
-        "altis": {}
+        "altis": {
+            "install-overrides": [
+                "altis/consent",
+                "altis/consent-api"
+            ]
+        }
     }
 }
