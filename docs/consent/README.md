@@ -29,4 +29,4 @@ The API allows management of third party cookies if it is configured so. See the
 Altis' personalization features track user data using first-party cookies and are supported by default.
 
 ## Does the API help categorize the type of cookies?
-Out of the box, [five categories](./Consent-API.md#consent-categories) are provided: functional, marketing, statistics, statistics-anonymous and preferences. More categories can be added via a filter as explained in the Dev Docs.
+Out of the box, [five categories](./Consent-API.md#consent-categories) are provided: functional, marketing, statistics, statistics-anonymous and preferences. More categories can be [added via a filter](./Filter-Reference.md#altisconsentcategories).
