@@ -200,6 +200,7 @@ add_filter( 'altis.consent.types', function( $types ) {
     $types[] = 'none';
     return $types;
 } );
+```
 
 ## `altis.consent.categories`
 

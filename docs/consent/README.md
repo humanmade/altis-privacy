@@ -29,4 +29,23 @@ The API allows management of third party cookies if it is configured so. See the
 Altis' personalization features track user data using first-party cookies and are supported by default.
 
 ## Does the API help categorize the type of cookies?
-Out of the box, [five categories](./Consent-API.md#consent-categories) are provided: functional, marketing, statistics, statistics-anonymous and preferences. More categories can be added via a filter as explained in the Dev Docs.
+Out of the box, [five categories](./Consent-API.md#consent-categories) are provided: functional, marketing, statistics, statistics-anonymous and preferences. More categories can be [added via a filter](./Filter-Reference.md#altisconsentcategories).
+
+## Configuration
+Altis Consent is active by default. However, if your project is already using an alternative consent system and you would like to disable Altis Consent, this can be done in the project's `composer.json` file:
+
+```json
+{
+	"extra": {
+		"altis": {
+			"modules": {
+				"privacy": {
+					"consent": false
+				}
+			}
+		}
+	}
+}
+```
+
+Alternatively, you can use the [`altis.consent.should_display_banner`](./Filter-Reference.md#altisconsentshould_display_banner) filter or the [admin "Display Cookie Consent Banner" setting](./Privacy-Settings-page.md#Dispay-Cookie-Consent-Banner) to disable the banner. Note that neither of these two options will completely disable the Consent API itself, and all associated JavaScript will still load on the page.
