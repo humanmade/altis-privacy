@@ -111,7 +111,7 @@ function form_response_exporter( string $email, int $page = 1 ) : array {
 		'paged' => $page,
 		'post_type' => 'form_responses',
 		'meta_key' => 'email',
-		'meta_value' => $meail,
+		'meta_value' => $email,
 	] );
 
 	foreach ( $responses->posts as $post ) {
