@@ -4,7 +4,7 @@
     "type": "package",
     "require": {
         "php": ">=7.1",
-        "altis/consent": "~1.0.6"
+        "altis/consent": "~1.0.7"
     },
     "license": "GPL-3.0",
     "authors": [
