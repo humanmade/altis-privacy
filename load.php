@@ -14,6 +14,8 @@ add_action( 'altis.modules.init', function () {
 		'enabled' => true,
 		'consent' => true,
 	];
-
-	Altis\register_module( 'privacy', __DIR__, 'Privacy', $default_settings, __NAMESPACE__ . '\\bootstrap' );
+	$options = [
+		'defaults' => $default_settings,
+	];
+	Altis\register_module( 'privacy', __DIR__, 'Privacy', $options, __NAMESPACE__ . '\\bootstrap' );
 } );
