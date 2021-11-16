@@ -12,13 +12,13 @@ To keep up with the GDPR regulations and your company's privacy and cookie polic
 
 ## How does it work?
 
-Altis Consent is an API that is designed to handle how cookies and other types of data stored locally on a user's computer are registered in the code. By creating a registry of cookies and local storage, and defining what those cookies are used for, the API allows the software to intelligently use only those cookies that a user has granted access to.
-
-In order for this to work, all cookies and local storage used on a site must be registered in the way mentioned in the Altis developer documentation.
+Altis Consent is an API that is designed to help you manage when to load scripts that set cookies and other types of data stored locally on a user's computer. It allows you to subscribe to changes in a user's consent and use those events to trigger Google Tag Manager tags, or to lazily load other JavaScript that sets cookies.
 
 ## What does it do?
 
-Out of the box, the Consent API supports [Altis Analytics](docs://analytics/native/README.md) and [Google Tag Manager](docs://analytics/google-tag-manager/README.md). Using the controls provided on the Privacy page in the WP admin you can link your website's Privacy Policy and Cookie storage Policy page. There are options to control whether to grant the user a choice to select the types of cookies they want to consent to, or an option to allow all cookies or only functional cookies. You may also easily add a cookie consent banner message in the admin settings.
+Out of the box, the Consent API supports [Altis Analytics](docs://analytics/native/README.md) and [Google Tag Manager](docs://analytics/google-tag-manager/README.md). Using the controls provided on the Privacy page in the WP admin you can link your website's Privacy Policy and Cookie storage Policy page.
+
+There are options to control whether to grant the user a choice to select the types of cookies they want to consent to, or an option to allow all cookies or only functional cookies. You may also easily add a cookie consent banner message in the admin settings.
 
 In addition, a robust templating system and dozens of filters allow development teams to fully customize the options or the display of the banner, or only customize certain specific elements, based on a site's needs.
 
@@ -29,7 +29,11 @@ The API allows management of third party cookies if it is configured so. See the
 Altis' personalization features track user data using first-party cookies and are supported by default.
 
 ## Does the API help categorize the type of cookies?
-Out of the box, [five categories](./Consent-API.md#consent-categories) are provided: functional, marketing, statistics, statistics-anonymous and preferences. More categories can be [added via a filter](./Filter-Reference.md#altisconsentcategories).
+Altis does not do any automatic categorisation of your cookies. It provides the means for users to control their consent and for you to respond to changes in that consent. Determining which scripts fall into which category needs to be manually determined and can vary by geographical location.
+
+Out of the box, [five categories](./consent-api.md#consent-categories) are provided: `functional`, `marketing`, `statistics`, `statistics-anonymous` and `preferences`. More categories can be [added via a filter](./filter-reference.md#altisconsentcategories).
+
+**Note:** `functional` and `statistics-anonymous` categories are always allowed by default. This can be modified using the [`altis.consent.always_allow_categories` filter](./filter-reference.md#altisconsentalways_allow_categories).
 
 ## Configuration
 Altis Consent is active by default. However, if your project is already using an alternative consent system and you would like to disable Altis Consent, this can be done in the project's `composer.json` file:
@@ -48,4 +52,4 @@ Altis Consent is active by default. However, if your project is already using an
 }
 ```
 
-Alternatively, you can use the [`altis.consent.should_display_banner`](./Filter-Reference.md#altisconsentshould_display_banner) filter or the [admin "Display Cookie Consent Banner" setting](./Privacy-Settings-page.md#Dispay-Cookie-Consent-Banner) to disable the banner. Note that neither of these two options will completely disable the Consent API itself, and all associated JavaScript will still load on the page.
+Alternatively, you can use the [`altis.consent.should_display_banner`](./filter-reference.md#altisconsentshould_display_banner) filter or the [admin "Display Cookie Consent Banner" setting](./privacy-settings-page.md#Dispay-Cookie-Consent-Banner) to disable the banner. Note that neither of these two options will completely disable the Consent API itself, and all associated JavaScript will still load on the page.
