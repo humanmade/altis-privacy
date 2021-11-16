@@ -2,7 +2,7 @@
 
 Support for Google Tag Manager is provided via GTM's data layer variable. When either the page loads or consent is subsequently changed the data layer is updated allowing you to create triggers based on the consent given.
 
-The event name is `altis-consent-changed` and the variable is named `altisConsent`. The variable data is a list of the [consent categories](./Consent-API.md#consent-categories) currently given for example "functional, statistics-anonymous".
+The event name is `altis-consent-changed` and the variable is named `altisConsent`. The variable data is a list of the [consent categories](./consent-api.md#consent-categories) currently given for example "functional, statistics-anonymous".
 
 ## Creating the Variable
 
