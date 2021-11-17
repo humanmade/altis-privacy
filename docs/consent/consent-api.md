@@ -6,7 +6,15 @@ The Consent API is a developer API to read and register consent categories, to a
 
 The Consent API adds two new concepts: a `consent_type` and a consent `category`. Categories are used to group user data by its intended usage, e.g. `marketing`. `consent_type` defines whether consent is `optin`, `optout` or some other type defined in the code.
 
-The default consent type can be set in the code. The Altis Consent module defaults the consent type to `optin`. This means that user data stored locally will only be used if a user explicitly _allows_ access. If the default `consent_type` is set to `optout`, user data will be assumed to be okay to use unless a user explicitly _disallows_ access.
+The default consent type can be set in the code. The Altis Consent module defaults the consent type to `optin`, except for the `functional` and `statistics-anonymous` categories. This tells you that user data stored locally should only be used if a user explicitly _allows_ access. If the default `consent_type` is set to `optout`, user data will be assumed to be okay to use unless a user explicitly _disallows_ access.
+
+The default categories `functional` and `statistics-anonymous` that are allowed by default can be modified using the `altis.consent.always_allow_categories` filter. The example below will make only the `functional` category allowed by default:
+
+```php
+add_filter( 'altis.consent.always_allow_categories', function () {
+    return [ 'functional' ];
+} );
+```
 
 Other consent types can be defined within the code.
 
