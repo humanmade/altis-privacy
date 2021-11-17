@@ -1,8 +1,7 @@
 # Filter Reference
+## `altis.consent.always_allow_categories`
 
-## `altis.consent.allowlisted_categories`
-
-An array of always allowed consent categories.
+An array of always allowed consent categories. Defaults to "functional" and "statistics-anonymous".
 
 ### Parameters
 
@@ -10,7 +9,7 @@ An array of always allowed consent categories.
 
 ### Source
 
-File: [`inc/namespace.php`](https://github.com/humanmade/altis-consent/blob/master/inc/namespace.php)  
+File: [`inc/namespace.php`](https://github.com/humanmade/altis-consent/blob/master/inc/namespace.php)
 
 ## `altis.consent.consent_settings_fields`
 
@@ -73,7 +72,7 @@ The Altis Privacy page saved options. If you create new options for the Privacy 
 
 ### Parameters
 
-**`$validated`** _(array)_ An array of validated data.  
+**`$validated`** _(array)_ An array of validated data.
 
 **`$dirty`** _(array)_ An array of unvalidated data.
 
@@ -83,7 +82,7 @@ File: [`inc/settings.php`](https://github.com/humanmade/altis-consent/blob/maste
 
 ## `altis.consent.default_banner_message`
 
-The default cookie consent banner message. This is the text that appears in the WordPress WYSIWYG editor on the Altis Privacy page by default, before it's been saved. 
+The default cookie consent banner message. This is the text that appears in the WordPress WYSIWYG editor on the Altis Privacy page by default, before it's been saved.
 
 ### Parameters
 
