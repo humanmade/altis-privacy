@@ -36,7 +36,7 @@ The standard content hierarchy is as follows:
 
 Under the [Settings > Privacy admin menu item](internal://admin/privacy.php) it is possible to select which page you would like to use as the privacy policy page.
 
-![Privacy page settings screen](./assets/privacy-page-settings.png)
+![Privacy page settings screen](../assets/privacy-page-settings.png)
 
 The Privacy Policy page ID is stored as an option:
 
@@ -74,7 +74,7 @@ add_action( 'admin_init', function () {
 
 When a user makes a request for an export of their personal data a confirmation request should be sent to them via the [Export Personal Data tool](internal://admin/tools.php?page=export_personal_data) by filling in their email address and clicking send.
 
-![Personal Data Export admin screen](./assets/data-export.png)
+![Personal Data Export admin screen](../assets/data-export.png)
 
 Once they have confirmed their request a zip file is created and emailed to them.
 
