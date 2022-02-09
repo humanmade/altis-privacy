@@ -90,6 +90,39 @@ wp_localize_script( 'altis-consent', 'altisConsent', [
 ] );
 ```
 
+## `consent_category_labels`
+
+Returns a list of consent categories with labels.
+
+* See [`altis.consent.category_labels`](./filter-reference.md#altisconsentcategorylabels)
+
+### Return
+
+_(array)_ The list of currently allowed consent categories. Defaults are "Functional", "Preferences", "Statistics", "Anonymous statistics" and "Marketing".
+
+### Example
+```php
+wp_localize_script( 'altis-consent', 'altisConsent', [
+    'labels' => consent_category_labels(),
+] );
+```
+
+## `get_category_label`
+
+Returns the label for a given consent category.
+
+### Parameters
+
+**`$category`** _(string)_ The category to get the label for.
+### Return
+
+_(string)_ The label or an empty string if the `$category` is unknown.
+
+### Example
+```php
+echo esc_html( Consent\get_category_label( 'preferences' ) );
+```
+
 ## `consent_values`
 
 Returns a list of active possible consent values.
