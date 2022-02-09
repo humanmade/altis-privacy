@@ -217,6 +217,23 @@ add_filter( 'altis.consent.categories', function( $categories ) {
 } );
 ```
 
+## `altis.consent.category_labels`
+
+The consent categories with labels for end user display.
+
+### Parameters
+
+**`$categories`** _(array)_ The list of consent categories with labels. Defaults are "Functional", "Preferences", "Statistics", "Anonymous statistics" and "Marketing".
+
+### Example
+```php
+// Changing the 'preferences' category label to 'Settings'.
+add_filter( 'altis.consent.category_labels', function( $categories ) {
+    $categories['preferences'] = __( 'Settings' );
+    return $categories;
+} );
+```
+
 ## `altis.consent.values`
 
 The possible consent values.
