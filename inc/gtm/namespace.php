@@ -13,7 +13,8 @@ use Altis;
  * Kick it off.
  */
 function bootstrap() {
-	$gtm = Altis\get_config()['modules']['analytics']['google-tag-manager'];
+	$config = Altis\get_config();
+	$gtm = $config['modules']['analytics']['google-tag-manager'] ?? '';
 
 	// Bail if we aren't using GTM.
 	if ( empty( $gtm ) ) {
