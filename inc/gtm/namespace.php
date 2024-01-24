@@ -7,20 +7,10 @@
 
 namespace Altis\Privacy\GTM;
 
-use Altis;
-
 /**
  * Kick it off.
  */
 function bootstrap() {
-	$config = Altis\get_config();
-	$gtm = $config['modules']['analytics']['google-tag-manager'] ?? '';
-
-	// Bail if we aren't using GTM.
-	if ( empty( $gtm ) ) {
-		return;
-	}
-
 	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts', 11 );
 }
 
