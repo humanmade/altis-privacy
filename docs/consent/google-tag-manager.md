@@ -1,6 +1,41 @@
 # Google Tag Manager Consent Integration
 
-Support for Google Tag Manager is provided via GTM's data layer variable. When either the page loads or consent is subsequently changed the data layer is updated allowing you to create triggers based on the consent given.
+Support for Google Tag Manager (GTM) can be added via GTM's data layer variable.
+
+You will need to add the following PHP file to your application somewhere and load it. It can be a `mu-plugin`, or part of a theme for example.
+
+```php
+<?php
+/**
+ * Altis Consent Tag Manager Integration
+ */
+
+namespace Altis\Consent\GTM;
+
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts', 11 );
+
+/**
+ * Add inline tag manager script to Consent API JS.
+ */
+function enqueue_scripts() {
+	wp_add_inline_script(
+		'altis-consent',
+		sprintf(
+			// Ensure data layer variable is available.
+			'var %1$s = window.%1$s || [];' .
+			// Push initial consented categories into data layer.
+			'%1$s.push( { event: \'altis-consent-changed\', altisConsent: Altis.Consent.getCategories().join( \', \' ) + \',\' } );' .
+			// Listen for updates to consented categories.
+			'document.addEventListener( \'wp_listen_for_consent_change\', function () { %1$s.push( { event: \'altis-consent-changed\', altisConsent: Altis.Consent.getCategories().join( \', \' ) + \',\' } ) } );',
+			// If using the HM GTM plugin this will ensure the right data layer variable name is used.
+			apply_filters( 'hm_gtm_data_layer_var', 'dataLayer' )
+		),
+		'after'
+	);
+}
+```
+
+When either the page loads or consent is subsequently changed the data layer is updated allowing you to create triggers based on the consent given.
 
 The event name is `altis-consent-changed` and the variable is named `altisConsent`. The variable data is a list of the [consent categories](./consent-api.md#consent-categories) currently given for example "functional, statistics-anonymous".
 
