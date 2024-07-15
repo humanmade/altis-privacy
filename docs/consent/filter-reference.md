@@ -1,4 +1,5 @@
 # Filter Reference
+
 ## `altis.consent.always_allow_categories`
 
 An array of always allowed consent categories. Defaults to "functional" and "statistics-anonymous".
@@ -19,13 +20,13 @@ Settings fields that appear on the Altis Privacy page.
 
 **`$fields`** _(array)_ An array of settings fields with unique IDs, titles and callback functions in the following format:
 
-```
+```php
 $fields = [
-	[
-		'id'       => 'unique_setting_id',
-		'title'    => __( 'Rendered Setting Label', 'altis-consent' ),
-		'callback' => __NAMESPACE__ . '\\setting_callback_function',
-	],
+    [
+        'id'       => 'unique_setting_id',
+        'title'    => __( 'Rendered Setting Label', 'altis-consent' ),
+        'callback' => __NAMESPACE__ . '\\setting_callback_function',
+    ],
 ];
 ```
 
@@ -41,12 +42,12 @@ The available banner options to display on the options page.
 
 **`$options`** _(array)_ An array of cookie banner options in the following format:
 
-```
+```php
 $options = [
-	[
-		'value' => 'none',
-		'label' => __( 'Allow/Deny All Cookies', 'altis-consent' ),
-	],
+    [
+        'value' => 'none',
+        'label' => __( 'Allow/Deny All Cookies', 'altis-consent' ),
+    ],
 ];
 ```
 
@@ -56,7 +57,9 @@ File: [`inc/settings.php`](https://github.com/humanmade/altis-consent/blob/maste
 
 ## `altis.consent.privacy_policy_message`
 
-The actual text that displays above the Privacy Policy Page setting on the Privacy page. This language can be altered or removed entirely using this filter. The original text that displays duplicates the text that existed on the original WordPress core Privacy page.
+The actual text that displays above the Privacy Policy Page setting on the Privacy page. This language can be altered or removed
+entirely using this filter. The original text that displays duplicates the text that existed on the original WordPress core Privacy
+page.
 
 ### Parameters
 
@@ -68,13 +71,14 @@ File: [`inc/settings.php`](https://github.com/humanmade/altis-consent/blob/maste
 
 ## `altis.consent.validate_privacy_options`
 
-The Altis Privacy page saved options. If you create new options for the Privacy page, you must use this filter to add and validate that new option data.
+The Altis Privacy page saved options. If you create new options for the Privacy page, you must use this filter to add and validate
+that new option data.
 
 ### Parameters
 
 **`$validated`** _(array)_ An array of validated data.
 
-**`$dirty`** _(array)_ An array of unvalidated data.
+**`$dirty`** _(array)_ An array of data not yet validated.
 
 ### Source
 
@@ -82,7 +86,8 @@ File: [`inc/settings.php`](https://github.com/humanmade/altis-consent/blob/maste
 
 ## `altis.consent.default_banner_message`
 
-The default cookie consent banner message. This is the text that appears in the WordPress WYSIWYG editor on the Altis Privacy page by default, before it's been saved.
+The default cookie consent banner message. This is the text that appears in the WordPress WYSIWYG editor on the Altis Privacy page
+by default, before it's been saved.
 
 ### Parameters
 
@@ -94,9 +99,12 @@ File: [`inc/settings.php`](https://github.com/humanmade/altis-consent/blob/maste
 
 ## `altis.consent.allowed_policy_page_values`
 
-An array of allowed policy pages we can create. Used by [`render_secondary_button function`](). The default pages that can be created are `privacy_policy` and `cookie_policy`.
+An array of allowed policy pages we can create. Used
+by [`render_secondary_button function`](./function-reference.md#settingsrender_secondary_button). The
+default pages that can be created are `privacy_policy` and `cookie_policy`.
 
-If new policy pages should be created on a settings page using `render_secondary_button`, this filter must be used to allow those pages.
+If new policy pages should be created on a settings page using `render_secondary_button`, this filter must be used to allow those
+pages.
 
 ### Parameters
 
@@ -122,7 +130,8 @@ File: [`inc/settings.php`](https://github.com/humanmade/altis-consent/blob/maste
 
 ## `altis.consent.consent_banner_path`
 
-The path to the consent banner template. Within the Altis Consent module, this template loads all the other templates. Overriding this setting allows you to create your own custom banner templates
+The path to the consent banner template. Within the Altis Consent module, this template loads all the other templates. Overriding
+this setting allows you to create your own custom banner templates
 
 ### Parameters
 
@@ -133,6 +142,7 @@ The path to the consent banner template. Within the Altis Consent module, this t
 File: [`inc/functions.php`](https://github.com/humanmade/altis-consent/blob/master/inc/functions.php)
 
 ### Example
+
 ```php
 // Override the default consent banner templates.
 add_filter( 'altis.consent.consent_banner_path', __DIR__ . '/path/to/your/template.php' );
@@ -140,7 +150,8 @@ add_filter( 'altis.consent.consent_banner_path', __DIR__ . '/path/to/your/templa
 
 ## `altis.consent.should_display_banner`
 
-Whether to display the banner. This filter defaults to the value of the `display_banner` setting, or `false` if that's not set. Using this filter allows you to hijack the display of the banner based on external logic.
+Whether to display the banner. This filter defaults to the value of the `display_banner` setting, or `false` if that's not set.
+Using this filter allows you to hijack the display of the banner based on external logic.
 
 ### Parameters
 
@@ -151,6 +162,7 @@ Whether to display the banner. This filter defaults to the value of the `display
 File: [`inc/functions.php`](https://github.com/humanmade/altis-consent/blob/master/inc/functions.php)
 
 ### Example
+
 ```php
 add_filter( 'altis.consent.should_display_banner', function ( bool $display_banner ) : bool {
     // Don't display if the page ID is 10.
@@ -179,6 +191,7 @@ The consent cookie prefix.
 **`$cookie_prefix`** _(string)_ The consent cookie prefix. Default is `altis_consent`.
 
 ### Example
+
 ```php
 add_filter( 'altis.consent.cookie_prefix', function() {
     return 'some_other_prefix';
@@ -194,6 +207,7 @@ The allowed consent types.
 **`$types`** _(array)_ The list of consent types. Defaults are `optin` and `optout`.
 
 ### Example
+
 ```php
 add_filter( 'altis.consent.types', function( $types ) {
     $types[] = 'none';
@@ -207,9 +221,11 @@ The allowed consent categories.
 
 ### Parameters
 
-**`$categories`** _(array)_ The list of consent categories. Defaults are `functional`, `preferences`, `statistics`, `statistics-anonymous`, `marketing`.
+**`$categories`** _(array)_ The list of consent categories. Defaults
+are `functional`, `preferences`, `statistics`, `statistics-anonymous`, `marketing`.
 
 ### Example
+
 ```php
 add_filter( 'altis.consent.categories', function( $categories ) {
     $categories[] = 'personalization';
@@ -223,9 +239,11 @@ The consent categories with labels for end user display.
 
 ### Parameters
 
-**`$categories`** _(array)_ The list of consent categories with labels. Defaults are "Functional", "Preferences", "Statistics", "Anonymous statistics" and "Marketing".
+**`$categories`** _(array)_ The list of consent categories with labels. Defaults are "Functional", "Preferences", "Statistics", "
+Anonymous statistics" and "Marketing".
 
 ### Example
+
 ```php
 // Changing the 'preferences' category label to 'Settings'.
 add_filter( 'altis.consent.category_labels', function( $categories ) {
@@ -243,6 +261,7 @@ The possible consent values.
 **`$values`** _(array)_ The list of consent values. Defaults are `allow`, `deny`.
 
 ### Example
+
 ```php
 add_filter( 'altis.consent.values', function( $values ) {
     $values[] = 'other';
@@ -292,7 +311,8 @@ File: [`tmpl/consent-banner.php`](https://github.com/humanmade/altis-consent/blo
 
 ## `altis.consent.no_option_saved_message`
 
-The message that displays in the `consent-banner.php` template if no consent options have been saved in the admin. This message can potentially be overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
+The message that displays in the `consent-banner.php` template if no consent options have been saved in the admin. This message can
+potentially be overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
 
 ### Parameters
 
@@ -328,7 +348,8 @@ File: [`tmpl/consent-banner.php`](https://github.com/humanmade/altis-consent/blo
 
 ## `altis.consent.preferences_updated_message`
 
-The message that displays when a user saves their cookie consent preference. This message can potentially be overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
+The message that displays when a user saves their cookie consent preference. This message can potentially be overridden if using
+your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
 
 ### Parameters
 
@@ -340,7 +361,9 @@ File: [`tmpl/consent-updated.php`](https://github.com/humanmade/altis-consent/bl
 
 ## `altis.consent.apply_cookie_preferences_button_text`
 
-The button text for the Apply Changes button, when cookie category preferences are displayed. This message can potentially be overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)) or if categories are not displayed as part of the cookie consent banner.
+The button text for the Apply Changes button, when cookie category preferences are displayed. This message can potentially be
+overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)) or if
+categories are not displayed as part of the cookie consent banner.
 
 ### Parameters
 
@@ -352,7 +375,8 @@ File: [`tmpl/cookie-preferences.php`](https://github.com/humanmade/altis-consent
 
 ## `altis.consent.cookie_consent_policy_link_text`
 
-The hyperlinked message that links to the Cookie Policy page. Defaults to "Read our cookie policy". This message can potentially be overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
+The hyperlinked message that links to the Cookie Policy page. Defaults to "Read our cookie policy". This message can potentially be
+overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
 
 ### Parameters
 
@@ -364,7 +388,8 @@ File: [`tmpl/cookie-consent-policy.php`](https://github.com/humanmade/altis-cons
 
 ## `altis.consent.cookie_consent_policy_template_path`
 
-The path to the cookie consent policy template. This template displays the link to the cookie policy page if a cookie policy page has been set in the Altis Privacy options.
+The path to the cookie consent policy template. This template displays the link to the cookie policy page if a cookie policy page
+has been set in the Altis Privacy options.
 
 ### Parameters
 
@@ -376,7 +401,8 @@ File: [`tmpl/button-row.php`](https://github.com/humanmade/altis-consent/blob/ma
 
 ## `altis.consent.accept_all_cookies_button_text`
 
-The text to display in the "accept all cookies" button. This message can potentially be overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
+The text to display in the "accept all cookies" button. This message can potentially be overridden if using your own templates (
+see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
 
 ### Parameters
 
@@ -388,7 +414,8 @@ File: [`tmpl/button-row.php`](https://github.com/humanmade/altis-consent/blob/ma
 
 ## `altis.consent.accept_only_functional_cookies_button_text`
 
-The text to display in the "accept only functional cookies" button. This message can potentially be overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
+The text to display in the "accept only functional cookies" button. This message can potentially be overridden if using your own
+templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)).
 
 ### Parameters
 
@@ -400,7 +427,8 @@ File: [`tmpl/button-row.php`](https://github.com/humanmade/altis-consent/blob/ma
 
 ## `altis.consent.cookie_preferences_button_text`
 
-The text to display in the "cookie preferences" button. This message can potentially be overridden if using your own templates (see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)) or if cookie consent categories are not displayed.
+The text to display in the "cookie preferences" button. This message can potentially be overridden if using your own templates (
+see [`altis.consent.consent_banner_path`](#altisconsentconsent_banner_path)) or if cookie consent categories are not displayed.
 
 ### Parameters
 
@@ -409,3 +437,5 @@ The text to display in the "cookie preferences" button. This message can potenti
 ### Source
 
 File: [`tmpl/button-row.php`](https://github.com/humanmade/altis-consent/blob/master/tmpl/button-row.php)
+
+<!-- markdownlint-disable-file MD024 -->
