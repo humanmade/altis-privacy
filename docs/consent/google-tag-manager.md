@@ -95,6 +95,6 @@ Again, navigate to the Triggers section on the left hand sidebar and then click 
 
 You will need to do this for each consent category & primary trigger event you need.
 
-Once you are done you can start using these triggers to ensure only the tags that your website visitors have consented to are loaded by clicking "Add Exception" and selecting the trigger(s) that check the required consent categories.
+Once you are done you can start using these triggers to ensure only the tags that your website visitors have consented to are loaded by adding the trigger(s) that check the required consent categories as "Firing Triggers" to your tags.
 
 ![Adding a Tag Manager tag that checks consent categories](../assets/gtm-tag.png)
