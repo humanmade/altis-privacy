@@ -3,7 +3,7 @@
     "description": "Privacy module for Altis",
     "type": "package",
     "require": {
-        "php": ">=7.1",
+        "php": ">=8.2",
         "altis/consent": "~1.0.15"
     },
     "license": "GPL-3.0",
